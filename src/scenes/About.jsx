@@ -34,7 +34,7 @@ export default function About() {
       })
       return () => mm.revert()
     },
-    { scope: ref, dependencies: [t] } // on recrée l'animation si la langue change
+    { scope: ref }
   )
 
   return (

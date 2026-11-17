@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { ScrollTrigger, useGSAP } from './lib/gsap'
+import { takePendingScrollY } from './i18n'
 import { useLenis } from './hooks/useLenis'
 import Nav from './components/Nav'
 import Timeline from './components/Timeline'
@@ -15,18 +17,49 @@ const SCENES = { home: Hero, about: About, work: Projects, expertise: Expertise,
 
 export default function App() {
   const [active, setActive] = useState(0)
+  const { i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage
   useLenis()
 
-  useGSAP(() => {
-    SECTIONS.forEach((id, i) => {
-      ScrollTrigger.create({
-        trigger: `#${id}`,
-        start: 'top center',
-        end: 'bottom center',
-        onToggle: (self) => self.isActive && setActive(i),
-      })
-    })
-  })
+  // Déclencheurs de la timeline. Recréés à chaque langue, APRÈS les scènes
+  // (les effets des enfants passent avant ceux du parent), puis tout est recalculé.
+  useGSAP(
+    () => {
+      const triggers = SECTIONS.map((id, i) =>
+        ScrollTrigger.create({
+          trigger: `#${id}`,
+          start: 'top center',
+          end: 'bottom center',
+          // Calculé APRÈS les sections épinglées, pour tenir compte de l'espace qu'elles ajoutent
+          refreshPriority: -1,
+          onToggle: (self) => self.isActive && setActive(i),
+        })
+      )
+
+      // Recalage explicite : quelle section est réellement à l'écran maintenant ?
+      const syncActive = () => {
+        const i = triggers.findIndex((t) => t.isActive)
+        if (i !== -1) setActive(i)
+      }
+
+      ScrollTrigger.refresh()
+
+      // Après un changement de langue : on revient à la position mémorisée par changeLanguage()
+      // (i18n.js). On attend la frame suivante, quand tous les recalculs de ScrollTrigger sont finis.
+      const y = takePendingScrollY()
+      if (y !== null) {
+        requestAnimationFrame(() => {
+          window.scrollTo(0, y)
+          ScrollTrigger.update()
+          document.body.style.minHeight = ''
+          syncActive()
+        })
+      } else {
+        syncActive()
+      }
+    },
+    { dependencies: [lang], revertOnUpdate: true } // revertOnUpdate : supprime les anciens déclencheurs
+  )
 
   return (
     <>
@@ -38,7 +71,9 @@ export default function App() {
       <Nav />
       <Timeline active={active} />
 
-      <main>
+      {/* key={lang} : au changement de langue, toutes les scènes sont démontées puis
+          remontées dans l'ordre, avec des animations neuves et des mesures justes */}
+      <main key={lang}>
         {SECTIONS.map((id) => {
           const Scene = SCENES[id]
           return (

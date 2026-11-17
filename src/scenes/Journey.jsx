@@ -27,7 +27,7 @@ export default function Journey() {
       })
       return () => mm.revert()
     },
-    { scope: ref, dependencies: [t] }
+    { scope: ref }
   )
 
   return (

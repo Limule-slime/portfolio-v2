@@ -42,7 +42,7 @@ export default function Expertise() {
       })
       return () => mm.revert()
     },
-    { scope: ref, dependencies: [t] }
+    { scope: ref }
   )
 
   return (

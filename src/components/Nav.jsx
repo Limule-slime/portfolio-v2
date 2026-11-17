@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '../hooks/useTheme'
+import { changeLanguage } from '../i18n'
 
 const LANGS = ['fr', 'en']
 
@@ -46,7 +47,7 @@ export default function Nav() {
               <button
                 key={lng}
                 type="button"
-                onClick={() => i18n.changeLanguage(lng)}
+                onClick={() => changeLanguage(lng)}
                 aria-pressed={current === lng}
                 className={`h-9 min-w-11 rounded-full px-3 font-mono text-xs uppercase transition ${
                   current === lng ? 'bg-fg text-ink' : 'text-muted hover:text-fg'
