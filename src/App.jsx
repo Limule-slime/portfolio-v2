@@ -1,21 +1,44 @@
+import { useState } from 'react'
+import { ScrollTrigger, useGSAP } from './lib/gsap'
+import { useLenis } from './hooks/useLenis'
 import Nav from './components/Nav'
-import Timeline from './components/Timeline'
+import Timeline, { SECTIONS } from './components/Timeline'
 import Hero from './scenes/Hero'
+import Placeholder from './scenes/Placeholder'
 
 export default function App() {
+  const [active, setActive] = useState(0)
+  useLenis()
+
+  // Un déclencheur par section : quand elle passe au milieu de l'écran, elle devient active
+  useGSAP(() => {
+    SECTIONS.forEach((id, i) => {
+      ScrollTrigger.create({
+        trigger: `#${id}`,
+        start: 'top center',
+        end: 'bottom center',
+        onToggle: (self) => self.isActive && setActive(i),
+      })
+    })
+  })
+
   return (
     <>
-      {/* Halos fixes : ils restent derrière tout le site pendant le défilement */}
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 left-[8%] size-[620px] rounded-full bg-accent/10 blur-[110px]" />
         <div className="absolute -bottom-40 -right-24 size-[540px] rounded-full bg-white/[0.06] blur-[120px]" />
       </div>
 
       <Nav />
-      <Timeline active={0} />
+      <Timeline active={active} />
 
       <main>
-        <Hero />
+        {/* L'id est sur l'enveloppe : elle inclut l'espace ajouté par l'épinglage */}
+        {SECTIONS.map((id) => (
+          <div id={id} key={id}>
+            {id === 'home' ? <Hero /> : <Placeholder id={id} />}
+          </div>
+        ))}
       </main>
     </>
   )

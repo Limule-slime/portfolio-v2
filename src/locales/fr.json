@@ -16,7 +16,7 @@
   "hero": {
     "badge": "Frontend Developer · Disponible freelance & CDI",
     "title": "Je conçois et développe des",
-    "titleAccent": "interfaces web.",
+    "words": ["interfaces web.", "composants React.", "expériences fluides.", "sites sur mesure."],
     "intro": "Front-end, de la maquette Figma au code, depuis Antananarivo, en remote pour la France, le Canada et ailleurs.",
     "ctaWork": "Voir les projets",
     "ctaCv": "CV PDF"

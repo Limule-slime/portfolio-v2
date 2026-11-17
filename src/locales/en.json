@@ -16,7 +16,7 @@
   "hero": {
     "badge": "Frontend Developer · Available for freelance & full-time",
     "title": "I design and build",
-    "titleAccent": "web interfaces.",
+    "words": ["web interfaces.", "React components.", "seamless experiences.", "custom websites."],
     "intro": "Front-end, from Figma mockup to code, based in Antananarivo and working remotely for France, Canada and beyond.",
     "ctaWork": "See my work",
     "ctaCv": "Résumé (PDF)"
