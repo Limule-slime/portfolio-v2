@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { gsap, useGSAP } from '../lib/gsap'
+import { gsap, useGSAP, DESKTOP, MOBILE } from '../lib/gsap'
 
 export default function About() {
   const { t } = useTranslation()
@@ -11,7 +11,8 @@ export default function About() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia()
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Grand écran : section épinglée, texte révélé puis cartes en 3D
+      mm.add(DESKTOP, () => {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ref.current,
@@ -32,6 +33,30 @@ export default function About() {
           0.3
         )
       })
+
+      // Mobile : même révélation mot à mot, mais au fil du défilement normal
+      mm.add(MOBILE, () => {
+        const text = ref.current.querySelector('.about-text')
+        const list = ref.current.querySelector('.stat-list')
+        gsap.fromTo(
+          '.about-word',
+          { opacity: 0.14 },
+          {
+            opacity: 1,
+            stagger: 0.05,
+            ease: 'none',
+            scrollTrigger: { trigger: text, start: 'top 80%', end: 'bottom 45%', scrub: true },
+          }
+        )
+        gsap.from('.stat-card', {
+          y: 40,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: list, start: 'top 85%' },
+        })
+      })
       return () => mm.revert()
     },
     { scope: ref }
@@ -41,13 +66,13 @@ export default function About() {
     <section
       ref={ref}
       aria-labelledby="about-title"
-      className="flex h-screen flex-wrap items-center justify-center gap-[clamp(32px,5vw,80px)] px-6 py-28 lg:pr-44"
+      className="flex min-h-svh flex-wrap items-center justify-center gap-[clamp(32px,5vw,80px)] px-6 py-24 lg:h-screen lg:py-28 lg:pr-44"
     >
       <div className="max-w-[680px] flex-[1_1_460px]">
         <h2 id="about-title" className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
           {t('about.label')}
         </h2>
-        <p className="mt-5 text-[clamp(26px,3.1vw,44px)] font-medium leading-[1.2] tracking-[-0.035em]">
+        <p className="about-text mt-5 text-[clamp(24px,3.1vw,44px)] font-medium leading-[1.2] tracking-[-0.035em]">
           {words.map((word, i) => {
             const isAccent = word.startsWith('*')
             return (
@@ -60,7 +85,7 @@ export default function About() {
       </div>
 
       {/* perspective sur le parent : c'est ce qui donne la profondeur à la rotation 3D */}
-      <ul className="flex max-w-[420px] flex-[1_1_300px] flex-col gap-3.5 [perspective:1200px]">
+      <ul className="stat-list flex w-full max-w-[420px] flex-[1_1_300px] flex-col gap-3.5 [perspective:1200px]">
         {stats.map((s) => (
           <li key={s.value} className="stat-card glass rounded-[22px] px-6 py-6">
             <p className="bg-gradient-to-b from-fg to-muted bg-clip-text text-[44px] font-semibold tracking-[-0.04em] text-transparent">

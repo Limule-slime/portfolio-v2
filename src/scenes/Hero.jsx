@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { gsap, useGSAP } from '../lib/gsap'
+import { gsap, useGSAP, DESKTOP, MOBILE } from '../lib/gsap'
 import { useRotatingIndex } from '../hooks/useRotatingIndex'
 import { cvUrl } from '../data/contact'
 
@@ -13,8 +13,8 @@ export default function Hero() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia()
-      // Animation créée seulement si le visiteur n'a pas demandé moins d'animations
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Grand écran : le hero est épinglé, grossit, se floute et disparaît
+      mm.add(DESKTOP, () => {
         gsap.timeline({
           scrollTrigger: {
             trigger: ref.current,
@@ -25,6 +25,16 @@ export default function Hero() {
           },
         }).to('.hero-content', { scale: 1.9, filter: 'blur(14px)', opacity: 0, ease: 'none' })
       })
+      // Mobile : pas d'épinglage, le contenu s'efface doucement en remontant (sans flou, plus léger)
+      mm.add(MOBILE, () => {
+        gsap.to('.hero-content', {
+          yPercent: -12,
+          scale: 0.94,
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: { trigger: ref.current, start: 'top top', end: 'bottom top', scrub: true },
+        })
+      })
       return () => mm.revert()
     },
     { scope: ref } // '.hero-content' n'est cherché qu'à l'intérieur de ce composant
@@ -34,7 +44,7 @@ export default function Hero() {
     <section
       ref={ref}
       aria-labelledby="hero-title"
-      className="flex h-screen items-center justify-center overflow-hidden px-6"
+      className="flex min-h-svh items-center justify-center overflow-hidden px-6 pb-16 pt-28 lg:h-screen lg:py-0"
     >
       <div className="hero-content mx-auto flex max-w-7xl flex-col items-center text-center will-change-transform">
         <p className="glass inline-flex items-center gap-2.5 rounded-full px-4 py-2 font-mono text-xs uppercase tracking-[0.1em]">
@@ -50,7 +60,7 @@ export default function Hero() {
         {/* Version visuelle animée (mot qui change), ignorée par les robots et lecteurs d'écran */}
         <p
           aria-hidden="true"
-          className="mt-8 text-[clamp(40px,6.4vw,92px)] font-semibold leading-[1.04] tracking-[-0.055em]"
+          className="mt-8 text-[clamp(36px,6.4vw,92px)] font-semibold leading-[1.04] tracking-[-0.055em]"
         >
           {t('hero.title')}
           <br />

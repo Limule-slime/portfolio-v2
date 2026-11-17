@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { gsap, useGSAP } from '../lib/gsap'
+import { gsap, ScrollTrigger, useGSAP, DESKTOP, MOBILE } from '../lib/gsap'
 
 export default function Expertise() {
   const { t } = useTranslation()
@@ -10,7 +10,8 @@ export default function Expertise() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia()
-      mm.add('(prefers-reduced-motion: no-preference)', () => {
+      // Grand écran : section épinglée, les lignes entrent tour à tour
+      mm.add(DESKTOP, () => {
         const titles = ref.current.querySelectorAll('.skill-title')
 
         const tl = gsap.timeline({
@@ -39,6 +40,26 @@ export default function Expertise() {
 
         // Nettoyage : on retire les classes ajoutées à la main
         return () => titles.forEach((el) => el.classList.remove('text-accent'))
+      })
+
+      // Mobile : chaque ligne glisse en entrant à l'écran, et passe en orange
+      // quand elle traverse le milieu de l'écran
+      mm.add(MOBILE, () => {
+        ref.current.querySelectorAll('.skill-row').forEach((row, i) => {
+          gsap.from(row, {
+            xPercent: i % 2 === 0 ? -15 : 15,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: row, start: 'top 88%' },
+          })
+          ScrollTrigger.create({
+            trigger: row,
+            start: 'top 55%',
+            end: 'bottom 55%',
+            toggleClass: { targets: row.querySelector('.skill-title'), className: 'text-accent' },
+          })
+        })
       })
       return () => mm.revert()
     },

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { gsap, useGSAP } from '../lib/gsap'
+import { gsap, useGSAP, DESKTOP, MOBILE } from '../lib/gsap'
 import { PROJECTS } from '../data/projects'
 
 export default function Projects() {
@@ -14,8 +14,8 @@ export default function Projects() {
     () => {
       const mm = gsap.matchMedia()
 
-      // Seulement sur écran ≥ 768 px ET si les animations sont autorisées
-      mm.add('(min-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
+      // Seulement sur grand écran ET si les animations sont autorisées (sinon : carrousel au doigt)
+      mm.add(DESKTOP, () => {
         const track = trackRef.current
         const viewport = viewportRef.current
 
@@ -44,6 +44,19 @@ export default function Projects() {
         })
       })
 
+      // Mobile : les projets sont listés à la verticale ; chaque carte monte en fondu en entrant
+      mm.add(MOBILE, () => {
+        ref.current.querySelectorAll('.project-card').forEach((card) => {
+          gsap.from(card, {
+            y: 40,
+            opacity: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 90%' },
+          })
+        })
+      })
+
       return () => mm.revert()
     },
     { scope: ref }
@@ -53,7 +66,7 @@ export default function Projects() {
     <section
       ref={ref}
       aria-labelledby="work-title"
-      className="flex h-screen flex-col justify-center overflow-hidden py-24"
+      className="flex min-h-svh flex-col justify-center overflow-hidden py-24 lg:h-screen"
     >
       <div className="flex flex-wrap items-end justify-between gap-4 px-6 md:px-[clamp(24px,6vw,120px)] lg:pr-48">
         <div>
@@ -65,16 +78,23 @@ export default function Projects() {
             {t('work.title')} <span className="accent">{t('work.titleAccent')}</span>
           </h2>
         </div>
-        <p aria-hidden="true" className="font-mono text-sm text-muted">
+        <p aria-hidden="true" className="hidden font-mono text-sm text-muted lg:block">
           <span ref={counterRef}>01</span> / {String(PROJECTS.length).padStart(2, '0')}
         </p>
       </div>
 
-      {/* Mobile : défilement natif au doigt avec aimantation (snap). Desktop : piloté par GSAP */}
-      <div ref={viewportRef} className="no-scrollbar mt-10 snap-x snap-mandatory overflow-x-auto lg:mr-44 lg:[mask-image:linear-gradient(to_right,black_88%,transparent)]">
-        <ul ref={trackRef} className="flex w-max gap-6 px-6 md:px-[clamp(24px,6vw,120px)]">
+      {/* Mobile / tablette : liste verticale. Grand écran : piste horizontale pilotée par GSAP
+          (ou défilement horizontal natif si les animations sont réduites) */}
+      <div
+        ref={viewportRef}
+        className="no-scrollbar mt-10 lg:mr-44 lg:snap-x lg:snap-mandatory lg:overflow-x-auto lg:[mask-image:linear-gradient(to_right,black_88%,transparent)]"
+      >
+        <ul
+          ref={trackRef}
+          className="grid gap-6 px-6 sm:grid-cols-2 md:px-[clamp(24px,6vw,120px)] lg:flex lg:w-max"
+        >
           {PROJECTS.map((p, i) => (
-            <li key={p.id} className="w-[min(440px,78vw)] shrink-0 snap-start">
+            <li key={p.id} className="project-card lg:w-[min(440px,78vw)] lg:shrink-0 lg:snap-start">
               <a
                 href={p.url}
                 target="_blank"

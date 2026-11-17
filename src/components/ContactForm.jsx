@@ -53,11 +53,11 @@ export default function ContactForm() {
         <legend className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
           {t('contact.form.type')}
         </legend>
-        <div className="mt-2.5 flex flex-wrap gap-2">
+        <div className="mt-2.5 grid gap-2 sm:flex sm:flex-wrap">
           {TYPES.map((type, i) => (
             <label
               key={type}
-              className="cursor-pointer rounded-full border border-glass-stroke px-4 py-2.5 text-sm font-medium transition hover:border-fg/40 has-checked:border-fg has-checked:bg-fg has-checked:text-ink has-focus-visible:ring-2 has-focus-visible:ring-accent/50"
+              className="cursor-pointer rounded-full border border-glass-stroke px-4 py-3 text-center text-sm font-medium sm:py-2.5 transition hover:border-fg/40 has-checked:border-fg has-checked:bg-fg has-checked:text-ink has-focus-visible:ring-2 has-focus-visible:ring-accent/50"
             >
               <input type="radio" name="type" value={type} defaultChecked={i === 0} className="sr-only" />
               {t(`contact.form.types.${type}`)}

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { gsap, useGSAP } from '../lib/gsap'
+import { gsap, useGSAP, DESKTOP, MOBILE } from '../lib/gsap'
 
 export default function Journey() {
   const { t } = useTranslation()
@@ -11,7 +11,7 @@ export default function Journey() {
     () => {
       const mm = gsap.matchMedia()
       // Frise horizontale animée seulement sur grand écran (≥ 1024 px)
-      mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      mm.add(DESKTOP, () => {
         const tl = gsap.timeline({
           scrollTrigger: { trigger: ref.current, start: 'top top', end: '+=160%', pin: true, scrub: true },
         })
@@ -24,6 +24,19 @@ export default function Journey() {
           { opacity: 0.12, y: 30, scale: 0.9, filter: 'blur(6px)', stagger: 1, duration: 0.6, ease: 'power2.out' },
           0
         )
+      })
+
+      // Mobile : chaque étape apparaît en entrant à l'écran
+      mm.add(MOBILE, () => {
+        ref.current.querySelectorAll('.journey-step').forEach((step) => {
+          gsap.from(step, {
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: step, start: 'top 90%' },
+          })
+        })
       })
       return () => mm.revert()
     },
