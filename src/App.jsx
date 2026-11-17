@@ -4,13 +4,16 @@ import { useLenis } from './hooks/useLenis'
 import Nav from './components/Nav'
 import Timeline, { SECTIONS } from './components/Timeline'
 import Hero from './scenes/Hero'
+import About from './scenes/About'
 import Placeholder from './scenes/Placeholder'
+import Projects from './scenes/Projects'
+
+const SCENES = { home: Hero, about: About, work: Projects }
 
 export default function App() {
   const [active, setActive] = useState(0)
   useLenis()
 
-  // Un déclencheur par section : quand elle passe au milieu de l'écran, elle devient active
   useGSAP(() => {
     SECTIONS.forEach((id, i) => {
       ScrollTrigger.create({
@@ -33,12 +36,14 @@ export default function App() {
       <Timeline active={active} />
 
       <main>
-        {/* L'id est sur l'enveloppe : elle inclut l'espace ajouté par l'épinglage */}
-        {SECTIONS.map((id) => (
-          <div id={id} key={id}>
-            {id === 'home' ? <Hero /> : <Placeholder id={id} />}
-          </div>
-        ))}
+        {SECTIONS.map((id) => {
+          const Scene = SCENES[id]
+          return (
+            <div id={id} key={id}>
+              {Scene ? <Scene /> : <Placeholder id={id} />}
+            </div>
+          )
+        })}
       </main>
     </>
   )

@@ -20,5 +20,29 @@
     "intro": "Front-end, from Figma mockup to code, based in Antananarivo and working remotely for France, Canada and beyond.",
     "ctaWork": "See my work",
     "ctaCv": "Résumé (PDF)"
+  },
+  "about": {
+    "label": "02 · About",
+    "text": "Front-end developer for over 12 years, I turn Figma mockups into fast, accessible and *lively* interfaces. Today, I build with JavaScript and React.",
+    "stats": [
+      { "value": "12+ yrs", "label": "of front-end, from mockup to launch" },
+      { "value": "50+", "label": "websites shipped: WordPress, Magento 2, custom" },
+      { "value": "UTC+3", "label": "1–2 h ahead of Paris, same working hours" }
+    ]
+  },
+  "work": {
+    "label": "03 · Work",
+    "title": "Selected",
+    "titleAccent": "projects.",
+    "screenshot": "Screenshot coming soon",
+    "visit": "Visit site",
+    "items": {
+      "accordia": "Custom WordPress theme with reusable ACF blocks and a built-in accessibility module.",
+      "crush": "Symfony recruitment platform and native iOS / Android apps, built as part of a team.",
+      "johnson": "Site designed in Figma, then built with WordPress and Elementor.",
+      "brossier": "Magento 2 store: checkout flow, emails and Page Builder pages.",
+      "aycardi": "WooCommerce store, from design to launch.",
+      "tirage": "Interactive tarot reading site built solo, with JavaScript card animations."
+    }
   }
 }

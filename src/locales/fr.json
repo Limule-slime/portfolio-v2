@@ -20,5 +20,29 @@
     "intro": "Front-end, de la maquette Figma au code, depuis Antananarivo, en remote pour la France, le Canada et ailleurs.",
     "ctaWork": "Voir les projets",
     "ctaCv": "CV PDF"
+  },
+  "about": {
+    "label": "02 · À propos",
+    "text": "Développeur front-end depuis plus de 12 ans, je transforme des maquettes Figma en interfaces rapides, accessibles et *vivantes.* Aujourd’hui, je construis en JavaScript et React.",
+    "stats": [
+      { "value": "12+ ans", "label": "de front-end, de la maquette à la mise en ligne" },
+      { "value": "50+", "label": "sites livrés : WordPress, Magento 2, sur mesure" },
+      { "value": "UTC+3", "label": "1 à 2 h d’avance sur Paris, mêmes horaires de travail" }
+    ]
+  },
+  "work": {
+    "label": "03 · Travaux",
+    "title": "Projets",
+    "titleAccent": "sélectionnés.",
+    "screenshot": "Capture à venir",
+    "visit": "Voir le site",
+    "items": {
+      "accordia": "Thème WordPress sur mesure, blocs ACF réutilisables et module d’accessibilité.",
+      "crush": "Plateforme de recrutement Symfony et applications natives iOS / Android, développées en équipe.",
+      "johnson": "Site conçu sur Figma puis développé sous WordPress avec Elementor.",
+      "brossier": "Boutique Magento 2 : tunnel de commande, emails et pages Page Builder.",
+      "aycardi": "Boutique WooCommerce, du design à la mise en ligne.",
+      "tirage": "Tirage de tarot interactif développé seul, avec cartes animées en JavaScript."
+    }
   }
 }
