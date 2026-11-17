@@ -6,6 +6,7 @@ import '@fontsource-variable/geist-mono'
 import '@fontsource/instrument-serif/400-italic.css'
 import './index.css'
 import App from './App.jsx'
+import './i18n'   // à placer avant import App
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

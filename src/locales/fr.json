@@ -1,1 +1,24 @@
-{}
+{
+  "nav": {
+    "contact": "Me contacter",
+    "language": "Choisir la langue",
+    "clock": "Tana"
+  },
+  "timeline": { "label": "Sections de la page" },
+  "sections": {
+    "home": "Accueil",
+    "about": "À propos",
+    "work": "Projets",
+    "expertise": "Expertise",
+    "journey": "Parcours",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Frontend Developer · Disponible freelance & CDI",
+    "title": "Je conçois et développe des",
+    "titleAccent": "interfaces web.",
+    "intro": "Front-end, de la maquette Figma au code, depuis Antananarivo, en remote pour la France, le Canada et ailleurs.",
+    "ctaWork": "Voir les projets",
+    "ctaCv": "CV PDF"
+  }
+}
