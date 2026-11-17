@@ -44,5 +44,27 @@
       "aycardi": "WooCommerce store, from design to launch.",
       "tirage": "Interactive tarot reading site built solo, with JavaScript card animations."
     }
+  },
+  "expertise": {
+    "label": "04 · Expertise",
+    "rows": [
+      { "title": "Code", "items": ["JavaScript", "React", "HTML5", "CSS3 · Tailwind"] },
+      { "title": "CMS & e-commerce", "items": ["WordPress · ACF", "Elementor", "WooCommerce", "Magento 2"] },
+      { "title": "Design", "items": ["Figma", "Photoshop", "Web design", "Accessibility"] },
+      { "title": "Project management", "items": ["Front-end project lead", "PHP · Symfony", "Remote"] }
+    ]
+  },
+  "journey": {
+    "label": "05 · Journey",
+    "title": "12 years,",
+    "titleAccent": "six steps.",
+    "steps": [
+      { "date": "2015 →", "title": "CodeCreativity studio", "desc": "Freelance · web design & development" },
+      { "date": "2019 — 2022", "title": "Technical lead", "desc": "Medialibs · CMS-based websites" },
+      { "date": "2022 — 2023", "title": "Front-End Developer", "desc": "Bocasay · Symfony, Magento, React stack" },
+      { "date": "2024 — 2025", "title": "Integrator / Developer", "desc": "Octantis, Canada" },
+      { "date": "2025 — 2026", "title": "Front-End Developer", "desc": "Awebi, B Corp web agency" },
+      { "date": "2026 — now", "title": "Project lead & Front-end", "desc": "Symfony SaaS platform, client in France" }
+    ]
   }
 }

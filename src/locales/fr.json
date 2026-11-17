@@ -44,5 +44,27 @@
       "aycardi": "Boutique WooCommerce, du design à la mise en ligne.",
       "tirage": "Tirage de tarot interactif développé seul, avec cartes animées en JavaScript."
     }
+  },
+  "expertise": {
+    "label": "04 · Expertise",
+    "rows": [
+      { "title": "Code", "items": ["JavaScript", "React", "HTML5", "CSS3 · Tailwind"] },
+      { "title": "CMS & e-commerce", "items": ["WordPress · ACF", "Elementor", "WooCommerce", "Magento 2"] },
+      { "title": "Design", "items": ["Figma", "Photoshop", "Webdesign", "Accessibilité"] },
+      { "title": "Gestion de projet", "items": ["Chef de projet front", "PHP · Symfony", "Remote"] }
+    ]
+  },
+  "journey": {
+    "label": "05 · Parcours",
+    "title": "12 ans,",
+    "titleAccent": "six étapes.",
+    "steps": [
+      { "date": "2015 →", "title": "Studio CodeCreativity", "desc": "Freelance · webdesign & développement" },
+      { "date": "2019 — 2022", "title": "Référent technique", "desc": "Medialibs · sites sous CMS" },
+      { "date": "2022 — 2023", "title": "Développeur Front-End", "desc": "Bocasay · Symfony, Magento, env. React" },
+      { "date": "2024 — 2025", "title": "Intégrateur / Développeur", "desc": "Octantis, Canada" },
+      { "date": "2025 — 2026", "title": "Développeur Front-End", "desc": "Awebi, agence web B Corp" },
+      { "date": "2026 — auj.", "title": "Chef de projet & Front", "desc": "Plateforme SaaS Symfony, client en France" }
+    ]
   }
 }
