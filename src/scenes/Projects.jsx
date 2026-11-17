@@ -96,7 +96,7 @@ export default function Projects() {
                   <div className="h-[clamp(180px,30vh,270px)] overflow-hidden rounded-[14px] bg-glass-strong">
                     <img
                       src={p.image}
-                      alt="" // décorative : le nom du projet est juste en dessous
+                      alt={t('work.screenshotAlt', { name: p.name })} // aussi utile au référencement des images
                       width="1600"
                       height="600"
                       loading="lazy"

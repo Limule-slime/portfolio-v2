@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "Développeur Front-end Freelance React & WordPress | Mirary R.",
+    "description": "Développeur front-end freelance (12+ ans) : intégration Figma, React, WordPress et Magento 2. Des sites rapides et accessibles, en remote depuis Madagascar.",
+    "jobTitle": "Développeur front-end freelance",
+    "ogAlt": "Mirary Rasolohery, développeur front-end freelance"
+  },
   "nav": {
     "contact": "Me contacter",
     "language": "Choisir la langue",
@@ -17,7 +23,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Frontend Developer · Disponible freelance & CDI",
+    "badge": "Développeur front-end · Disponible en freelance & CDI",
     "title": "Je conçois et développe des",
     "words": [
       "interfaces web.",
@@ -25,13 +31,13 @@
       "expériences fluides.",
       "sites sur mesure."
     ],
-    "intro": "Front-end, de la maquette Figma au code, depuis Antananarivo, en remote pour la France, le Canada et ailleurs.",
+    "intro": "Développeur front-end freelance et intégrateur web : de la maquette Figma au site en ligne, en React, WordPress ou Magento 2. Basé à Antananarivo, je travaille à distance pour la France, le Canada et ailleurs.",
     "ctaWork": "Voir les projets",
     "ctaCv": "CV PDF"
   },
   "about": {
     "label": "02 · À propos",
-    "text": "Développeur front-end depuis plus de 12 ans, je transforme des maquettes Figma en interfaces rapides, accessibles et *vivantes.* Aujourd’hui, je construis en JavaScript et React, et j’intègre l’IA générative à mon workflow pour prototyper plus vite et livrer mieux.",
+    "text": "Je suis Mirary Rasolohery, développeur front-end depuis plus de 12 ans. Je transforme des maquettes Figma en interfaces rapides, accessibles et *vivantes.* Aujourd’hui, je construis en JavaScript et React, avec l’IA générative intégrée à mon workflow pour prototyper plus vite et livrer mieux.",
     "stats": [
       {
         "value": "12+ ans",
@@ -48,19 +54,20 @@
     ]
   },
   "work": {
-    "label": "03 · Travaux",
+    "label": "03 · Réalisations",
     "title": "Projets",
     "titleAccent": "sélectionnés.",
     "screenshot": "Capture à venir",
     "visit": "Voir le site",
     "items": {
-      "accordia": "Thème WordPress sur mesure, blocs ACF réutilisables et module d’accessibilité.",
+      "accordia": "Thème WordPress sur mesure : blocs ACF réutilisables et module d’accessibilité (taille du texte, contraste, police).",
       "crush": "Plateforme de recrutement Symfony et applications natives iOS / Android, développées en équipe.",
-      "johnson": "Site conçu sur Figma puis développé sous WordPress avec Elementor.",
-      "brossier": "Boutique Magento 2 : tunnel de commande, emails et pages Page Builder.",
-      "aycardi": "Boutique WooCommerce, du design à la mise en ligne.",
+      "johnson": "Site d’agence artistique conçu sur Figma, puis développé sous WordPress avec Elementor.",
+      "brossier": "Boutique e-commerce Magento 2 : tunnel de commande, e-mails transactionnels et pages Page Builder.",
+      "aycardi": "Joaillier parisien depuis 1837 : boutique WooCommerce, du webdesign à la mise en ligne.",
       "tirage": "Tirage de tarot interactif développé seul, avec cartes animées en JavaScript."
-    }
+    },
+    "screenshotAlt": "Capture d’écran du site {{name}}"
   },
   "expertise": {
     "label": "04 · Expertise",
@@ -88,16 +95,16 @@
         "items": [
           "Figma",
           "Photoshop",
-          "Webdesign",
+          "Web design",
           "Accessibilité"
         ]
       },
       {
         "title": "Gestion de projet",
         "items": [
-          "Chef de projet front",
+          "Chef de projet front-end",
           "PHP · Symfony",
-          "Remote"
+          "Travail à distance"
         ]
       },
       {
@@ -119,7 +126,7 @@
       {
         "date": "2015 →",
         "title": "Studio CodeCreativity",
-        "desc": "Freelance · webdesign & développement"
+        "desc": "Freelance · web design & développement"
       },
       {
         "date": "2019 — 2022",
@@ -143,7 +150,7 @@
       },
       {
         "date": "2026 — auj.",
-        "title": "Chef de projet & Front",
+        "title": "Chef de projet & front-end",
         "desc": "Plateforme SaaS Symfony, client en France"
       }
     ]
@@ -152,7 +159,7 @@
     "label": "06 · Contact",
     "title": "Un projet ?",
     "titleAccent": "Parlons-en.",
-    "intro": "Mission freelance ou poste en CDI, en remote. Écrivez-moi via le formulaire ou directement par email.",
+    "intro": "Mission freelance ou poste en CDI, à distance. Écrivez-moi via le formulaire ou directement par e-mail.",
     "copy": "Copier",
     "copied": "Copié ✓",
     "form": {
@@ -165,14 +172,14 @@
       },
       "name": "Nom",
       "namePh": "Votre nom",
-      "email": "Email",
+      "email": "E-mail",
       "emailPh": "vous@exemple.com",
       "message": "Message",
       "messagePh": "Parlez-moi de votre projet…",
       "send": "Envoyer le message",
       "sending": "Envoi en cours…",
       "success": "Merci, votre message est bien parti. Je vous réponds sous 48 h.",
-      "error": "L’envoi a échoué. Réessayez, ou écrivez-moi directement par email."
+      "error": "L’envoi a échoué. Réessayez, ou écrivez-moi directement par e-mail."
     },
     "footer": "Conçu dans Figma, codé en React avec l’aide de l’IA",
     "top": "Haut de page"

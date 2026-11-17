@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Deux URL (FR et EN), chacune liée à l'autre via hreflang -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mirary.netlify.app/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mirary.netlify.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirary.netlify.app/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirary.netlify.app/" />
+  </url>
+  <url>
+    <loc>https://mirary.netlify.app/en/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mirary.netlify.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mirary.netlify.app/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mirary.netlify.app/" />
+  </url>
+</urlset>

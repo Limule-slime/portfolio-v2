@@ -2,9 +2,14 @@
 <html lang="fr" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mirary R. — Frontend Developer</title>
+    <meta name="theme-color" content="#08090a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Titre, description, hreflang, réseaux sociaux et JSON-LD : générés par vite.config.js -->
+    <!--seo-->
+
     <!-- Thème appliqué avant l'affichage : évite un "flash" de la mauvaise couleur au chargement -->
     <script>
       (function () {
@@ -16,6 +21,9 @@
         document.documentElement.dataset.theme = theme
       })()
     </script>
+
+    <!-- Cloudflare Web Analytics (repris de l'ancien portfolio) : statistiques sans cookies -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f8a9af522b9f4030ac749930598cf8e1"}'></script>
   </head>
   <body>
     <!-- Copie statique pour la détection Netlify Forms : mêmes noms de champs que ContactForm -->

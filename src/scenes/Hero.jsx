@@ -42,29 +42,30 @@ export default function Hero() {
           {t('hero.badge')}
         </p>
 
-        <h1
-          id="hero-title"
+        {/* Titre lu par Google et les lecteurs d'écran : une phrase simple et stable */}
+        <h1 id="hero-title" className="sr-only">
+          {t('hero.title')} {words[0]}
+        </h1>
+
+        {/* Version visuelle animée (mot qui change), ignorée par les robots et lecteurs d'écran */}
+        <p
+          aria-hidden="true"
           className="mt-8 text-[clamp(40px,6.4vw,92px)] font-semibold leading-[1.04] tracking-[-0.055em]"
         >
-          {/* Version stable pour les lecteurs d'écran (ils ne doivent pas entendre le mot changer) */}
-          <span className="sr-only">{t('hero.title')} {words[0]}</span>
-
-          <span aria-hidden="true">
-            {t('hero.title')}
-            <br />
-            {/* Fenêtre d'une ligne de haut ; la colonne de mots glisse dedans */}
-            <span className="inline-block h-[1.12em] overflow-hidden px-[0.1em] align-top">
-              <span
-                className="block transition-transform duration-700 ease-[cubic-bezier(.75,0,.2,1)]"
-                style={{ transform: `translateY(-${index * 1.12}em)` }}
-              >
-                {words.map((w) => (
-                  <span key={w} className="accent block h-[1.12em] leading-[1.12em]">{w}</span>
-                ))}
-              </span>
+          {t('hero.title')}
+          <br />
+          {/* Fenêtre d'une ligne de haut ; la colonne de mots glisse dedans */}
+          <span className="inline-block h-[1.12em] overflow-hidden px-[0.1em] align-top">
+            <span
+              className="block transition-transform duration-700 ease-[cubic-bezier(.75,0,.2,1)]"
+              style={{ transform: `translateY(-${index * 1.12}em)` }}
+            >
+              {words.map((w) => (
+                <span key={w} className="accent block h-[1.12em] leading-[1.12em]">{w}</span>
+              ))}
             </span>
           </span>
-        </h1>
+        </p>
 
         <p className="mt-8 max-w-[56ch] text-lg leading-relaxed text-muted">{t('hero.intro')}</p>
 

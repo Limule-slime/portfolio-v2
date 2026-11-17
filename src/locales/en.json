@@ -1,4 +1,10 @@
 {
+  "seo": {
+    "title": "Freelance Front-end Developer, React & WordPress | Mirary R.",
+    "description": "Freelance front-end developer (12+ years): Figma to code, React, WordPress and Magento 2. Fast, accessible websites, working remotely from Madagascar.",
+    "jobTitle": "Freelance front-end developer",
+    "ogAlt": "Mirary Rasolohery, freelance front-end developer"
+  },
   "nav": {
     "contact": "Get in touch",
     "language": "Choose language",
@@ -17,7 +23,7 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Frontend Developer · Available for freelance & full-time",
+    "badge": "Front-end developer · Available for freelance & full-time",
     "title": "I design and build",
     "words": [
       "web interfaces.",
@@ -25,13 +31,13 @@
       "seamless experiences.",
       "custom websites."
     ],
-    "intro": "Front-end, from Figma mockup to code, based in Antananarivo and working remotely for France, Canada and beyond.",
+    "intro": "Freelance front-end developer and web integrator: from Figma design to live website, with React, WordPress or Magento 2. Based in Antananarivo, working remotely for France, Canada and beyond.",
     "ctaWork": "See my work",
     "ctaCv": "Résumé (PDF)"
   },
   "about": {
     "label": "02 · About",
-    "text": "Front-end developer for over 12 years, I turn Figma mockups into fast, accessible and *lively* interfaces. Today, I build with JavaScript and React, with generative AI built into my workflow to prototype faster and ship better.",
+    "text": "I’m Mirary Rasolohery, a front-end developer with over 12 years of experience. I turn Figma designs into fast, accessible and *lively* interfaces. Today, I build with JavaScript and React, with generative AI built into my workflow to prototype faster and ship better.",
     "stats": [
       {
         "value": "12+ yrs",
@@ -54,13 +60,14 @@
     "screenshot": "Screenshot coming soon",
     "visit": "Visit site",
     "items": {
-      "accordia": "Custom WordPress theme with reusable ACF blocks and a built-in accessibility module.",
+      "accordia": "Custom WordPress theme: reusable ACF blocks and an accessibility module (text size, contrast, font).",
       "crush": "Symfony recruitment platform and native iOS / Android apps, built as part of a team.",
-      "johnson": "Site designed in Figma, then built with WordPress and Elementor.",
-      "brossier": "Magento 2 store: checkout flow, emails and Page Builder pages.",
-      "aycardi": "WooCommerce store, from design to launch.",
+      "johnson": "Talent agency website designed in Figma, then built with WordPress and Elementor.",
+      "brossier": "Magento 2 e-commerce store: checkout flow, transactional emails and Page Builder pages.",
+      "aycardi": "Parisian jeweller since 1837: WooCommerce store, from web design to launch.",
       "tirage": "Interactive tarot reading site built solo, with JavaScript card animations."
-    }
+    },
+    "screenshotAlt": "Screenshot of the {{name}} website"
   },
   "expertise": {
     "label": "04 · Expertise",
