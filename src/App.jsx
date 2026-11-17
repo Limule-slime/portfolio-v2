@@ -5,12 +5,12 @@ import Nav from './components/Nav'
 import Timeline, { SECTIONS } from './components/Timeline'
 import Hero from './scenes/Hero'
 import About from './scenes/About'
-import Placeholder from './scenes/Placeholder'
 import Projects from './scenes/Projects'
 import Expertise from './scenes/Expertise'
 import Journey from './scenes/Journey'
+import Contact from './scenes/Contact'
 
-const SCENES = { home: Hero, about: About, work: Projects, expertise: Expertise, journey: Journey }
+const SCENES = { home: Hero, about: About, work: Projects, expertise: Expertise, journey: Journey, contact: Contact }
 
 export default function App() {
   const [active, setActive] = useState(0)
@@ -42,7 +42,7 @@ export default function App() {
           const Scene = SCENES[id]
           return (
             <div id={id} key={id}>
-              {Scene ? <Scene /> : <Placeholder id={id} />}
+              <Scene />
             </div>
           )
         })}

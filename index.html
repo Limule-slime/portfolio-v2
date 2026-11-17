@@ -7,7 +7,20 @@
     <title>Mirary R. — Frontend Developer</title>
   </head>
   <body>
+    
+    <!-- Copie statique pour la détection Netlify Forms : mêmes noms de champs que ContactForm -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="type" />
+      <input name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <div id="root"></div>
+    ...
     <script type="module" src="/src/main.jsx"></script>
   </body>
+
+  
 </html>

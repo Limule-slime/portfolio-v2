@@ -66,5 +66,29 @@
       { "date": "2025 — 2026", "title": "Front-End Developer", "desc": "Awebi, B Corp web agency" },
       { "date": "2026 — now", "title": "Project lead & Front-end", "desc": "Symfony SaaS platform, client in France" }
     ]
+  },
+  "contact": {
+    "label": "06 · Contact",
+    "title": "Got a project?",
+    "titleAccent": "Let’s talk.",
+    "intro": "Freelance work or a full-time role, remote. Use the form or email me directly.",
+    "copy": "Copy",
+    "copied": "Copied ✓",
+    "form": {
+      "heading": "Send a message",
+      "type": "Type of request",
+      "types": { "freelance": "Freelance project", "job": "Full-time role", "other": "Other" },
+      "name": "Name",
+      "namePh": "Your name",
+      "email": "Email",
+      "emailPh": "you@example.com",
+      "message": "Message",
+      "messagePh": "Tell me about your project…",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Thanks, your message is on its way. I’ll get back to you within 48 hours.",
+      "error": "Something went wrong. Please try again, or email me directly."
+    },
+    "footer": "Designed in Figma, built with React"
   }
 }
