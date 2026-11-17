@@ -28,7 +28,7 @@ function seoHead(lng) {
     address: { '@type': 'PostalAddress', addressLocality: 'Antananarivo', addressCountry: 'MG' },
     knowsAbout: ['JavaScript', 'React', 'HTML5', 'CSS3', 'Tailwind CSS', 'WordPress', 'WooCommerce', 'Magento 2', 'Figma', 'Web accessibility'],
     knowsLanguage: ['fr', 'en', 'mg'],
-    sameAs: ['https://github.com/Limule-slime', 'https://www.linkedin.com/in/mirary-rasolohery-0977bb98'],
+    sameAs: ['https://github.com/Limule-slime', 'https://www.linkedin.com/in/mirary-rasolohery'],
   }
 
   return `<!--seo-start-->
