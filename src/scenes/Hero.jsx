@@ -2,9 +2,10 @@ import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap, useGSAP } from '../lib/gsap'
 import { useRotatingIndex } from '../hooks/useRotatingIndex'
+import { cvUrl } from '../data/contact'
 
 export default function Hero() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const ref = useRef(null)
   const words = t('hero.words', { returnObjects: true }) // renvoie le tableau, pas une chaîne
   const index = useRotatingIndex(words.length)
@@ -71,7 +72,7 @@ export default function Hero() {
           <a href="#work" className="inline-flex h-13 items-center gap-2 rounded-full bg-fg px-7 font-medium text-ink transition hover:-translate-y-0.5">
             {t('hero.ctaWork')} <span aria-hidden="true">→</span>
           </a>
-          <a href="#" className="glass inline-flex h-13 items-center gap-2 rounded-full px-7 font-medium transition hover:-translate-y-0.5">
+          <a href={cvUrl(i18n.resolvedLanguage)} target="_blank" rel="noopener noreferrer" className="glass inline-flex h-13 items-center gap-2 rounded-full px-7 font-medium transition hover:-translate-y-0.5">
             {t('hero.ctaCv')} <span aria-hidden="true">↗</span>
           </a>
         </div>

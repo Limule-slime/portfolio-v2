@@ -53,14 +53,14 @@ export default function Journey() {
           {steps.map((s, i) => {
             const isLast = i === steps.length - 1
             return (
-              <li key={s.date} className="journey-step">
+              <li key={s.date} className="journey-step flex flex-col">
                 <span
                   aria-hidden="true"
                   className={`hidden size-4 rounded-full ring-[6px] lg:block ${
                     isLast ? 'bg-accent ring-accent/20' : 'bg-fg ring-glass-stroke'
                   }`}
                 />
-                <div className="glass rounded-[18px] p-[18px] lg:mt-6">
+                <div className="glass flex-1 rounded-[18px] p-[18px] lg:mt-6">
                   <p className={`font-mono text-xs ${isLast ? 'text-accent' : 'text-muted'}`}>{s.date}</p>
                   <h3 className="mt-3 text-[clamp(15px,1.2vw,18px)] font-semibold leading-tight tracking-[-0.02em]">
                     {s.title}

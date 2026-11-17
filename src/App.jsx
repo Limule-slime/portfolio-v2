@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { ScrollTrigger, useGSAP } from './lib/gsap'
 import { useLenis } from './hooks/useLenis'
 import Nav from './components/Nav'
-import Timeline, { SECTIONS } from './components/Timeline'
+import Timeline from './components/Timeline'
+import { SECTIONS } from './data/sections'
 import Hero from './scenes/Hero'
 import About from './scenes/About'
 import Projects from './scenes/Projects'
@@ -31,7 +32,7 @@ export default function App() {
     <>
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute -top-40 left-[8%] size-[620px] rounded-full bg-accent/10 blur-[110px]" />
-        <div className="absolute -bottom-40 -right-24 size-[540px] rounded-full bg-white/[0.06] blur-[120px]" />
+        <div className="absolute -bottom-40 -right-24 size-[540px] rounded-full bg-halo blur-[120px]" />
       </div>
 
       <Nav />

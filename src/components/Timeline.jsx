@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
-
-export const SECTIONS = ['home', 'about', 'work', 'expertise', 'journey', 'contact']
+import { SECTIONS } from '../data/sections'
 
 export default function Timeline({ active = 0 }) {
   const { t } = useTranslation()

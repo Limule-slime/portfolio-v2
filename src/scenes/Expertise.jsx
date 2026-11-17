@@ -20,10 +20,10 @@ export default function Expertise() {
             end: '+=150%',
             pin: true,
             scrub: true,
-            // La ligne "active" (selon l'avancement) reçoit la classe accent
+            // La ligne "active" (selon l'avancement) passe en orange
             onUpdate: (self) => {
               const active = Math.min(titles.length - 1, Math.floor(self.progress * titles.length))
-              titles.forEach((el, i) => el.classList.toggle('accent', i === active))
+              titles.forEach((el, i) => el.classList.toggle('text-accent', i === active))
             },
           },
         })
@@ -38,7 +38,7 @@ export default function Expertise() {
         })
 
         // Nettoyage : on retire les classes ajoutées à la main
-        return () => titles.forEach((el) => el.classList.remove('accent'))
+        return () => titles.forEach((el) => el.classList.remove('text-accent'))
       })
       return () => mm.revert()
     },
@@ -58,10 +58,12 @@ export default function Expertise() {
       {rows.map((row) => (
         <div
           key={row.title}
-          className="skill-row flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-glass-stroke py-[clamp(12px,2.2vh,20px)] text-[clamp(34px,5vw,76px)] font-semibold leading-none tracking-[-0.05em]"
+          className="skill-row flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-glass-stroke py-[clamp(12px,2.2vh,20px)] text-[clamp(34px,4.6vw,72px)] leading-none"
         >
-          {/* La taille et la graisse sont sur le parent : la classe accent peut les surcharger proprement */}
-          <h3 className="skill-title transition-colors duration-300">{row.title}</h3>
+          {/* Titres toujours en serif italique ; seule la couleur change pour la ligne active */}
+          <h3 className="skill-title font-serif font-normal italic tracking-[-0.02em] transition-colors duration-300">
+            {row.title}
+          </h3>
           <ul className="flex flex-wrap gap-2 text-sm font-normal leading-normal tracking-normal">
             {row.items.map((item) => (
               <li key={item} className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-2">

@@ -2,10 +2,11 @@ import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap, useGSAP } from '../lib/gsap'
 import ContactForm from '../components/ContactForm'
-import { EMAIL, LINKS } from '../data/contact'
+import { EMAIL, LINKS, cvUrl } from '../data/contact'
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const links = [...LINKS, { label: 'CV', url: cvUrl(i18n.resolvedLanguage) }]
   const ref = useRef(null)
   const [copied, setCopied] = useState(false)
 
@@ -72,7 +73,7 @@ export default function Contact() {
           </div>
 
           <ul className="contact-extra mt-8 flex flex-wrap gap-7 text-[15px] text-muted">
-            {LINKS.map((l) => (
+            {links.map((l) => (
               <li key={l.label}>
                 <a href={l.url} target="_blank" rel="noopener noreferrer" className="inline-block py-2 transition hover:text-fg">
                   {l.label} <span aria-hidden="true">↗</span>
@@ -87,7 +88,7 @@ export default function Contact() {
 
       <footer className="mt-16 flex flex-wrap justify-between gap-3 border-t border-glass-stroke pt-6 font-mono text-xs text-muted">
         <span>© {new Date().getFullYear()} Mirary Rasolohery · {t('contact.footer')}</span>
-        <a href="#home" className="transition hover:text-fg">↑ Top</a>
+        <a href="#home" className="transition hover:text-fg">↑ {t('contact.top')}</a>
       </footer>
     </section>
   )

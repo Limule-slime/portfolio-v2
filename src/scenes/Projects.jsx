@@ -23,7 +23,7 @@ export default function Projects() {
         const distance = () => track.scrollWidth - viewport.clientWidth
 
         // On coupe le défilement natif : c'est GSAP qui pilote (annulé par mm.revert)
-        gsap.set(viewport, { overflow: 'visible' })
+        gsap.set(viewport, { overflow: 'hidden' })
 
         gsap.to(track, {
           x: () => -distance(),
@@ -71,7 +71,7 @@ export default function Projects() {
       </div>
 
       {/* Mobile : défilement natif au doigt avec aimantation (snap). Desktop : piloté par GSAP */}
-      <div ref={viewportRef} className="mt-10 snap-x snap-mandatory overflow-x-auto">
+      <div ref={viewportRef} className="no-scrollbar mt-10 snap-x snap-mandatory overflow-x-auto lg:mr-44 lg:[mask-image:linear-gradient(to_right,black_88%,transparent)]">
         <ul ref={trackRef} className="flex w-max gap-6 px-6 md:px-[clamp(24px,6vw,120px)]">
           {PROJECTS.map((p, i) => (
             <li key={p.id} className="w-[min(440px,78vw)] shrink-0 snap-start">
@@ -91,11 +91,25 @@ export default function Projects() {
                   </span>
                 </div>
 
-                {/* Emplacement de la capture */}
-                <div className="flex h-[clamp(180px,30vh,270px)] flex-col justify-between rounded-[14px] bg-glass-strong p-4 font-mono text-xs text-muted">
-                  <span>{String(i + 1).padStart(2, '0')}</span>
-                  <span>[{t('work.screenshot')}]</span>
-                </div>
+                {/* Capture du site, ou emplacement provisoire si l'image manque */}
+                {p.image ? (
+                  <div className="h-[clamp(180px,30vh,270px)] overflow-hidden rounded-[14px] bg-glass-strong">
+                    <img
+                      src={p.image}
+                      alt="" // décorative : le nom du projet est juste en dessous
+                      width="1600"
+                      height="600"
+                      loading="lazy"
+                      decoding="async"
+                      className="size-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-[clamp(180px,30vh,270px)] flex-col justify-between rounded-[14px] bg-glass-strong p-4 font-mono text-xs text-muted">
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    <span>[{t('work.screenshot')}]</span>
+                  </div>
+                )}
 
                 <div className="px-3 pb-3 pt-5">
                   <h3 className="text-[26px] font-semibold tracking-[-0.04em]">{p.name}</h3>

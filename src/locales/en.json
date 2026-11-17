@@ -2,9 +2,12 @@
   "nav": {
     "contact": "Get in touch",
     "language": "Choose language",
-    "clock": "Tana"
+    "themeToLight": "Switch to light theme",
+    "themeToDark": "Switch to dark theme"
   },
-  "timeline": { "label": "Page sections" },
+  "timeline": {
+    "label": "Page sections"
+  },
   "sections": {
     "home": "Home",
     "about": "About",
@@ -16,18 +19,32 @@
   "hero": {
     "badge": "Frontend Developer · Available for freelance & full-time",
     "title": "I design and build",
-    "words": ["web interfaces.", "React components.", "seamless experiences.", "custom websites."],
+    "words": [
+      "web interfaces.",
+      "React components.",
+      "seamless experiences.",
+      "custom websites."
+    ],
     "intro": "Front-end, from Figma mockup to code, based in Antananarivo and working remotely for France, Canada and beyond.",
     "ctaWork": "See my work",
     "ctaCv": "Résumé (PDF)"
   },
   "about": {
     "label": "02 · About",
-    "text": "Front-end developer for over 12 years, I turn Figma mockups into fast, accessible and *lively* interfaces. Today, I build with JavaScript and React.",
+    "text": "Front-end developer for over 12 years, I turn Figma mockups into fast, accessible and *lively* interfaces. Today, I build with JavaScript and React, with generative AI built into my workflow to prototype faster and ship better.",
     "stats": [
-      { "value": "12+ yrs", "label": "of front-end, from mockup to launch" },
-      { "value": "50+", "label": "websites shipped: WordPress, Magento 2, custom" },
-      { "value": "UTC+3", "label": "1–2 h ahead of Paris, same working hours" }
+      {
+        "value": "12+ yrs",
+        "label": "of front-end, from mockup to launch"
+      },
+      {
+        "value": "50+",
+        "label": "websites shipped: WordPress, Magento 2, custom"
+      },
+      {
+        "value": "UTC+3",
+        "label": "1–2 h ahead of Paris, same working hours"
+      }
     ]
   },
   "work": {
@@ -48,10 +65,50 @@
   "expertise": {
     "label": "04 · Expertise",
     "rows": [
-      { "title": "Code", "items": ["JavaScript", "React", "HTML5", "CSS3 · Tailwind"] },
-      { "title": "CMS & e-commerce", "items": ["WordPress · ACF", "Elementor", "WooCommerce", "Magento 2"] },
-      { "title": "Design", "items": ["Figma", "Photoshop", "Web design", "Accessibility"] },
-      { "title": "Project management", "items": ["Front-end project lead", "PHP · Symfony", "Remote"] }
+      {
+        "title": "Code",
+        "items": [
+          "JavaScript",
+          "React",
+          "HTML5",
+          "CSS3 · Tailwind"
+        ]
+      },
+      {
+        "title": "CMS & e-commerce",
+        "items": [
+          "WordPress · ACF",
+          "Elementor",
+          "WooCommerce",
+          "Magento 2"
+        ]
+      },
+      {
+        "title": "Design",
+        "items": [
+          "Figma",
+          "Photoshop",
+          "Web design",
+          "Accessibility"
+        ]
+      },
+      {
+        "title": "Project management",
+        "items": [
+          "Front-end project lead",
+          "PHP · Symfony",
+          "Remote"
+        ]
+      },
+      {
+        "title": "AI & workflow",
+        "items": [
+          "Claude · generative AI",
+          "Rapid prototyping",
+          "Faster development",
+          "Streamlined workflow"
+        ]
+      }
     ]
   },
   "journey": {
@@ -59,12 +116,36 @@
     "title": "12 years,",
     "titleAccent": "six steps.",
     "steps": [
-      { "date": "2015 →", "title": "CodeCreativity studio", "desc": "Freelance · web design & development" },
-      { "date": "2019 — 2022", "title": "Technical lead", "desc": "Medialibs · CMS-based websites" },
-      { "date": "2022 — 2023", "title": "Front-End Developer", "desc": "Bocasay · Symfony, Magento, React stack" },
-      { "date": "2024 — 2025", "title": "Integrator / Developer", "desc": "Octantis, Canada" },
-      { "date": "2025 — 2026", "title": "Front-End Developer", "desc": "Awebi, B Corp web agency" },
-      { "date": "2026 — now", "title": "Project lead & Front-end", "desc": "Symfony SaaS platform, client in France" }
+      {
+        "date": "2015 →",
+        "title": "CodeCreativity studio",
+        "desc": "Freelance · web design & development"
+      },
+      {
+        "date": "2019 — 2022",
+        "title": "Technical lead",
+        "desc": "Medialibs · CMS-based websites"
+      },
+      {
+        "date": "2022 — 2023",
+        "title": "Front-End Developer",
+        "desc": "Bocasay · Symfony, Magento, React stack"
+      },
+      {
+        "date": "2024 — 2025",
+        "title": "Integrator / Developer",
+        "desc": "Octantis, Canada"
+      },
+      {
+        "date": "2025 — 2026",
+        "title": "Front-End Developer",
+        "desc": "Awebi, B Corp web agency"
+      },
+      {
+        "date": "2026 — now",
+        "title": "Project lead & Front-end",
+        "desc": "Symfony SaaS platform, client in France"
+      }
     ]
   },
   "contact": {
@@ -77,7 +158,11 @@
     "form": {
       "heading": "Send a message",
       "type": "Type of request",
-      "types": { "freelance": "Freelance project", "job": "Full-time role", "other": "Other" },
+      "types": {
+        "freelance": "Freelance project",
+        "job": "Full-time role",
+        "other": "Other"
+      },
       "name": "Name",
       "namePh": "Your name",
       "email": "Email",
@@ -89,6 +174,7 @@
       "success": "Thanks, your message is on its way. I’ll get back to you within 48 hours.",
       "error": "Something went wrong. Please try again, or email me directly."
     },
-    "footer": "Designed in Figma, built with React"
+    "footer": "Designed in Figma, built with React and AI assistance",
+    "top": "Back to top"
   }
 }
