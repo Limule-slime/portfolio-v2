@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ScrollTrigger, useGSAP } from './lib/gsap'
 import { takePendingScrollY } from './i18n'
@@ -21,6 +21,20 @@ export default function App() {
   const { i18n } = useTranslation()
   const lang = i18n.resolvedLanguage
   useLenis()
+
+  // L'adresse suit la section affichée (#about, #work…) : un lien copié
+  // renvoie au bon endroit. replaceState : pas d'entrée ajoutée à l'historique.
+  // On ne touche à l'URL que quand la section change vraiment (pas au chargement),
+  // pour ne pas effacer un #section reçu dans un lien partagé.
+  const lastActive = useRef(active)
+  useEffect(() => {
+    if (lastActive.current === active) return
+    lastActive.current = active
+    const hash = active === 0 ? '' : `#${SECTIONS[active]}`
+    if (window.location.hash !== hash) {
+      window.history.replaceState(null, '', window.location.pathname + hash)
+    }
+  }, [active])
 
   // Déclencheurs de la timeline. Recréés à chaque langue, APRÈS les scènes
   // (les effets des enfants passent avant ceux du parent), puis tout est recalculé.
