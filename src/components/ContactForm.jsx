@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { WEB3FORMS_KEY } from '../data/contact'
 
 const TYPES = ['freelance', 'job', 'other']
 
@@ -17,13 +18,21 @@ export default function ContactForm() {
     setStatus('sending')
 
     try {
-      // Netlify attend un POST classique encodé comme un formulaire HTML
-      const res = await fetch('/', {
+      // Envoi via Web3Forms : chaque message arrive directement par e-mail
+      const data = new FormData(form)
+      const type = t(`contact.form.types.${data.get('type')}`)
+      data.set('type', type)                                  // libellé lisible plutôt que "job"
+      data.append('access_key', WEB3FORMS_KEY)
+      data.append('subject', `Portfolio · ${type} · ${data.get('name')}`)
+      data.append('from_name', 'Portfolio mirary.netlify.app')
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        headers: { Accept: 'application/json' },
+        body: data,
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const json = await res.json()
+      if (!res.ok || !json.success) throw new Error(json.message || `HTTP ${res.status}`)
       setStatus('success')
       form.reset()
     } catch {
@@ -34,17 +43,11 @@ export default function ContactForm() {
   return (
     <form
       name="contact"
-      method="POST"
       onSubmit={handleSubmit}
       className="contact-form glass w-full max-w-[500px] rounded-[28px] p-[clamp(22px,3vw,32px)]"
     >
-      {/* Champs techniques pour Netlify */}
-      <input type="hidden" name="form-name" value="contact" />
-      <p hidden>
-        <label>
-          Ne pas remplir : <input name="bot-field" tabIndex={-1} autoComplete="off" />
-        </label>
-      </p>
+      {/* Piège à robots : case invisible pour les humains, Web3Forms rejette l'envoi si elle est cochée */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
       <h3 className="text-[22px] font-semibold tracking-[-0.03em]">{t('contact.form.heading')}</h3>
 
